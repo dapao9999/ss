@@ -11,5 +11,5 @@ RUN apk update && \
     pip3 install shadowsocks
 
 CMD ssserver -p $PORT \
-             -K $PASSWORD \
-             -M $METHOD
+             -k $PASSWORD \
+             -m $METHOD
