@@ -7,8 +7,8 @@ ENV PASSWORD password
 ENV METHOD rc4-md5
 
 RUN apk update && \
-    apk add python3 git && \
-    pip3 install git+https://github.com/shadowsocks/shadowsocks.git@master
+    apk add python3 && \
+    pip3 install shadowsocks
 
 CMD ssserver -p $PORT \
              -k $PASSWORD \
