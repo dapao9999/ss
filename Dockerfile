@@ -1,15 +1,8 @@
-FROM alpine
+FROM ubuntu
 
-MAINTAINER wtf
+RUN apt update \
+&& apt install shadowsocks-libev -y
 
-ENV PORT 443
-ENV PASSWORD password
-ENV METHOD rc4-md5
-
-RUN apk update && \
-    apk add python3 && \
-    pip3 install shadowsocks
-
-CMD ssserver -p $PORT \
-             -k $PASSWORD \
-             -m $METHOD
+CMD ss-server -p ${PORT:-443} \
+             -k ${PASSWORD:-password} \
+             -m ${METHOD:-rc4-md5}
