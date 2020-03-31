@@ -1,8 +1,5 @@
-FROM alpine:3.7
+From ubuntu
 
-RUN apk add python3 && \
-    pip3 install shadowsocks
+Run apt update && apt install shadowsocks-libev -y
 
-CMD ssserver -p ${PORT:-443} \
-             -k ${PASSWORD:-password} \
-             -m ${METHOD:-rc4-md5}
+CMD ss-server -p ${PORT:-443} -k ${PASSWORD:-password} -m ${METHOD:-rc4-md5}
